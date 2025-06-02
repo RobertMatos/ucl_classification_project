@@ -30,8 +30,7 @@ This project applies machine learning techniques to predict UEFA Champions Leagu
 ## 📊 Dataset
 
 The dataset used in this project is available on Kaggle:  
-📎 UCL | Matches & Players Data (2021/2022)  
-https://www.kaggle.com/datasets/azminetoushikwasi/ucl-202122-uefa-champions-league
+📎 [UCL | Matches & Players Data (2021/2022)](https://www.kaggle.com/datasets/azminetoushikwasi/ucl-202122-uefa-champions-league)
 
 The key_stats.csv file includes the following relevant columns:
 
