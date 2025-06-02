@@ -92,9 +92,9 @@ The key_stats.csv file includes the following relevant columns:
 
 To visually explore player statistics, run the following notebook:
 
-    ```bash
+ ```bash
     jupyter notebook notebooks/exploracao_inicial.ipynb
-    ```
+ ```
 
 This notebook generates plots such as:
 
