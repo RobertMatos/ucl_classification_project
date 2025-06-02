@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.pkl
+
+# Ambientes virtuais
+.venv/
+env/
+venv/
+
+# Jupyter Notebooks
+notebooks/__pycache__/
+notebooks/.ipynb_checkpoints/
+
+# Arquivos de dados
+data/raw/
+data/processed/
+*.csv
+
+# Resultados e outputs
+results/plots/
+results/metrics/
+*.png
+*.joblib
+
+# IDEs e sistemas operacionais
+.DS_Store
+*.swp
+*.swo
+.vscode/
+*.log
+
+# Notebooks salvos temporariamente
+*.nbconvert.ipynb
