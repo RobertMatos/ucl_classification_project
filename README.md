@@ -1,130 +1,129 @@
 # UCL Player Position Classifier ⚽️
 
-Este projeto aplica técnicas de aprendizado de máquina para prever a posição (zagueiro, meia, atacante etc.) de jogadores da UEFA Champions League com base em estatísticas como gols, assistências e minutos jogados.
+This project applies machine learning techniques to predict UEFA Champions League player positions (e.g., defender, midfielder, forward) based on key statistics such as goals, assists, and minutes played.
 
-## 📁 Estrutura do Projeto
-```
-ucl_classification_project/
-│
-├── data/
-│   ├── raw/
-│   │   └── key_stats.csv       # Dados originais dos jogadores
-│   └── processed/              # Dados limpos
-│
-├── results/
-│   └── plots/                  # Gráficos gerados (matriz de confusão, boxplots, etc.)
-│   └── metrics/                # Métricas geradas (svm, árvore de decisão, etc.)
-│
-├── src/
-│   ├── preprocessing.py        # Carga e limpeza dos dados
-│   ├── feature_selection.py    # Seleção de características
-│   ├── models.py               # Treinamento dos modelos
-│   ├── evaluation.py           # Avaliação de performance
-│   ├── utils.py                # Utilitários (salvar modelo, imprimir seções, etc.)
-│
-├── main.py                     # Script principal de execução
-├── download_data.py            # Script de download do dataset
-├── requirements.txt            # Dependências do projeto
-└── README.md                   # Este arquivo
-```
+## 📁 Project Structure
 
-## 📊 Conjunto de Dados
+    ucl_classification_project/
+    │
+    ├── data/
+    │   ├── raw/
+    │   │   └── key_stats.csv       # Original player data
+    │   └── processed/              # Cleaned data
+    │
+    ├── results/
+    │   └── plots/                  # Generated charts (confusion matrix, boxplots, etc.)
+    │   └── metrics/                # Stored metrics (SVM, decision tree, etc.)
+    │
+    ├── src/
+    │   ├── preprocessing.py        # Data loading and cleaning
+    │   ├── feature_selection.py    # Feature selection
+    │   ├── models.py               # Model training
+    │   ├── evaluation.py           # Performance evaluation
+    │   ├── utils.py                # Utilities (save model, section printing, etc.)
+    │
+    ├── main.py                     # Main pipeline script
+    ├── download_data.py            # Dataset download script
+    ├── requirements.txt            # Project dependencies
+    └── README.md                   # This file
 
-O dataset utilizado neste projeto está disponível no Kaggle:  
-📎 [UCL | Matches & Players Data (2021/2022)](https://www.kaggle.com/datasets/azminetoushikwasi/ucl-202122-uefa-champions-league)
+## 📊 Dataset
 
-O arquivo `key_stats.csv` contém, entre outras, as seguintes colunas:
+The dataset used in this project is available on Kaggle:  
+📎 UCL | Matches & Players Data (2021/2022)  
+https://www.kaggle.com/datasets/azminetoushikwasi/ucl-202122-uefa-champions-league
 
-- `player_name`
-- `club`
-- `position` (target a ser previsto)
-- `minutes_played`
-- `match_played`
-- `goals`
-- `assists`
-- `distance_covered`
+The key_stats.csv file includes the following relevant columns:
 
-## 🔍 Pipeline de Treinamento
+- player_name
+- club
+- position (target to be predicted)
+- minutes_played
+- match_played
+- goals
+- assists
+- distance_covered
 
-1. 📥 Carregamento e limpeza dos dados (`src/preprocessing.py`)
-2. ✂️ Seleção de características com `SelectKBest`
-3. 🔀 Divisão entre treino e teste
-4. 🤖 Treinamento com dois modelos:
+## 🔍 Training Pipeline
+
+1. 📥 Load and clean data (src/preprocessing.py)
+2. ✂️ Feature selection using SelectKBest
+3. 🔀 Split into training and test sets
+4. 🤖 Train two models:
    - Support Vector Machine (SVM)
-   - Árvore de Decisão
-5. 🧪 Avaliação com métricas:
-   - Acurácia
-   - Precisão
+   - Decision Tree Classifier
+5. 🧪 Evaluate with the following metrics:
+   - Accuracy
+   - Precision
    - Recall
    - F1-score
-6. 📊 Visualização com matrizes de confusão e boxplots
+6. 📊 Visualize with confusion matrices and boxplots
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
-1. Clone o repositório:
+1. Clone the repository:
 
-```bash
-   git clone https://github.com/seu-usuario/ucl_classification_project.git
-   cd ucl_classification_project
-```
+    ```bash
+    git clone https://github.com/your-username/ucl_classification_project.git
+    cd ucl_classification_project
+    ```
 
-2. Crie o ambiente virtual e instale as dependências:
+2. Create a virtual environment and install dependencies:
 
-```bash
-   python -m venv .venv
-   source .venv/bin/activate  # ou .venv\Scripts\activate no Windows
-   pip install -r requirements.txt
-```
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+    pip install -r requirements.txt
+    ```
 
-3. Baixe o dataset do projeto (se a pasta raw não estiver preenchida):
-4. 
-```bash
-  python download_data.py
-```
+3. Download the dataset (if data/raw is empty):
 
-4. Execute o pipeline completo:
+    ```bash
+    python download_data.py
+    ```
 
-```bash
-  python main.py
-```
+4. Run the pipeline:
 
-### 📓 Análise Exploratória (Opcional)
+    ```bash
+    python main.py
+    ```
 
-Para uma análise visual mais aprofundada das estatísticas dos jogadores, você pode executar o notebook Jupyter:
+### 📓 Exploratory Analysis (Optional)
 
-```bash
-  jupyter notebook notebooks/exploracao_inicial.ipynb
-```
+To visually explore player statistics, run the following notebook:
 
-Esse notebook gera gráficos como:
+    ```bash
+    jupyter notebook notebooks/exploracao_inicial.ipynb
+    ```
 
-- Distribuição da variável alvo (`position`)
-- Mapa de correlação entre atributos
-- Boxplots comparando estatísticas por posição
+This notebook generates plots such as:
 
-> Obs: Os gráficos também são salvos em `results/plots/` para referência posterior.
+- Distribution of the target variable (position)
+- Correlation heatmap between numerical features
+- Boxplots comparing statistics by position
 
-## 🛠️ Tecnologias Usadas
+> Note: The plots are also saved to results/plots/ for later reference.
+
+## 🛠️ Technologies Used
 
 - Python 3.10+
 - pandas
 - scikit-learn
 - matplotlib
-- seaborn (para visualizações complementares)
+- seaborn (optional, for extra visualizations)
 
-## 📈 Resultados Esperados
+## 📈 Expected Results
 
-Ao final da execução, serão exibidas no console:
+After execution, you’ll see:
 
-- Métricas de avaliação para cada modelo
-- Matrizes de confusão
-- Boxplots por posição
+- Evaluation metrics for each model
+- Confusion matrices
+- Boxplots per position
 
-Além disso, os gráficos serão salvos em:
+All generated plots will be saved to:
 
-results/plots/
+    results/plots/
 
-## 📄 Licença
+## 📄 License
 
 MIT License © 2025 Robert Valadares
-# ucl_classification_project
